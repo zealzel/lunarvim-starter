@@ -1,7 +1,6 @@
 jupyterlab
 pynvim
 jupyter_client
-ueberzug
 Pillow
 cairosvg
 pnglatex
