@@ -12,6 +12,8 @@ lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bprevious<cr>"
 
 
+vim.g.python3_host_prog = "~/.pyenv/versions/3.9.11/bin/python3.9"
+
 local options = {
   -- backup = false, -- creates a backup file
   -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
@@ -191,22 +193,18 @@ lvim.plugins = {
   },
   -- You can run blocks of code like jupyter notebook.
   { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
-  {
-    "jayp0521/mason-null-ls.nvim",
-    config = function()
-      require("mason-null-ls").setup({
-        ensure_installed = {
-          -- "prettier",
-          -- "stylua",
-          "black",
-          "flake8",
-        },
-        automatic_installation = false,
-        automatic_setup = true, -- Recommended, but optional
-      })
 
-    end
-  },
+  -- currently mason-null-ls is not working well with LunarVim
+  --{
+  --  "jayp0521/mason-null-ls.nvim",
+  --  config = function()
+  --    require("mason-null-ls").setup({
+  --      ensure_installed = nil,
+  --      automatic_installation = true,
+  --      automatic_setup = false,
+  --    })
+  --  end
+  --},
   "morhetz/gruvbox",
 	{ "alexghergh/nvim-tmux-navigation" },
 }
