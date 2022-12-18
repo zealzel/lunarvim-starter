@@ -249,11 +249,8 @@ lvim.plugins = {
       require("leap").add_default_mappings()
     end,
   },
-
-  --================================================
-  -- To be added in the future
-  --================================================
   {
+    -- A light-weight lsp plugin based on neovim's built-in lsp with a highly performant UI.
     "glepnir/lspsaga.nvim",
     branch = "main",
     config = function()
@@ -261,16 +258,23 @@ lvim.plugins = {
       saga.init_lsp_saga({})
     end,
   },
+  {
+    -- TabNine completion engine for hrsh7th/nvim-cmp
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+  },
+
+  --================================================
+  -- To be added in the future
+  --================================================
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
   "octaltree/cmp-look",
   --"hrsh8th/cmp-calc",
   "f3fora/cmp-spell",
   "hrsh7th/cmp-emoji",
-  {
-    "tzachar/cmp-tabnine",
-    run = "./install.sh",
-  },
   "github/copilot.vim",
   "alexghergh/nvim-tmux-navigation",
 
