@@ -270,7 +270,7 @@ lvim.plugins = {
     -- Easy Neovim-Tmux navigation, completely written in Lua
     "alexghergh/nvim-tmux-navigation",
     config = function()
-      require("nvim_tmux_navigation").setup()
+      require("nvim-tmux-navigation").setup()
     end,
   },
 
