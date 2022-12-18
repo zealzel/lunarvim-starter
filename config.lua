@@ -179,6 +179,7 @@ lvim.plugins = {
   "AckslD/swenv.nvim",
   "mfussenegger/nvim-dap-python",
   "nvim-treesitter/nvim-treesitter-textobjects",
+  "DanilaMihailov/beacon.nvim",
   {
     -- You can generate docstrings automatically.
     "danymat/neogen",
@@ -198,7 +199,32 @@ lvim.plugins = {
   -- You can run blocks of code like jupyter notebook.
   { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
 
-  -- currently mason-null-ls is not working well with LunarVim
+  -- To be added in the future
+  "ray-x/lsp_signature.nvim",
+  "tami5/lspsaga.nvim",
+  "hrsh7th/cmp-nvim-lua",
+  "onsails/lspkind.nvim",
+  "octaltree/cmp-look",
+  "hrsh8th/cmp-calc",
+  "f3fora/cmp-spell",
+  "hrsh7th/cmp-emoji",
+  {
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+  },
+  "github/copilot.vim",
+  "tpope/vim-fugitive",
+  "preservim/nerdcommenter",
+  "alexghergh/nvim-tmux-navigation",
+  {
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+  "ggandor/leap.nvim",
+  --
+  -- Plugins not working. To be observed.
   --{
   --  "jayp0521/mason-null-ls.nvim",
   --  config = function()
@@ -209,10 +235,9 @@ lvim.plugins = {
   --    })
   --  end
   --},
-  "morhetz/gruvbox",
-  { "alexghergh/nvim-tmux-navigation" },
-}
 
+  "morhetz/gruvbox",
+}
 
 -- Setup Treesitter textobjects
 -- ref: https://github.com/LunarVim/LunarVim/issues/2730
