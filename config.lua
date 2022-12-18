@@ -266,18 +266,20 @@ lvim.plugins = {
     requires = "hrsh7th/nvim-cmp",
     event = "InsertEnter",
   },
+  {
+    -- Easy Neovim-Tmux navigation, completely written in Lua
+    "alexghergh/nvim-tmux-navigation",
+    config = function()
+      require("nvim_tmux_navigation").setup()
+    end,
+  },
 
   --================================================
   -- To be added in the future
   --================================================
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
-  "octaltree/cmp-look",
-  --"hrsh8th/cmp-calc",
-  "f3fora/cmp-spell",
-  "hrsh7th/cmp-emoji",
   "github/copilot.vim",
-  "alexghergh/nvim-tmux-navigation",
 
   --================================================
   -- Plugins not working. To be observed.
@@ -297,6 +299,10 @@ lvim.plugins = {
   -- Not used
   --================================================
   --"preservim/nerdcommenter", --> replaced with Comment.nvim
+  --"octaltree/cmp-look",
+  --"hrsh8th/cmp-calc",
+  --"f3fora/cmp-spell",
+  --"hrsh7th/cmp-emoji",
 }
 
 -- Setup Treesitter textobjects
