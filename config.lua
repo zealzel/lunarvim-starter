@@ -238,7 +238,7 @@ lvim.plugins = {
   {
     -- Add/change/delete surrounding delimiter pairs with ease
     "kylechui/nvim-surround",
-      config = function()
+    config = function()
       require("nvim-surround").setup()
     end,
   },
@@ -253,7 +253,14 @@ lvim.plugins = {
   --================================================
   -- To be added in the future
   --================================================
-  "tami5/lspsaga.nvim",
+  {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+      saga.init_lsp_saga({})
+    end,
+  },
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
   "octaltree/cmp-look",
@@ -265,7 +272,6 @@ lvim.plugins = {
     run = "./install.sh",
   },
   "github/copilot.vim",
-  "preservim/nerdcommenter",
   "alexghergh/nvim-tmux-navigation",
 
   --================================================
@@ -282,6 +288,10 @@ lvim.plugins = {
   --  end
   --},
 
+  --================================================
+  -- Not used
+  --================================================
+  --"preservim/nerdcommenter", --> replaced with Comment.nvim
 }
 
 -- Setup Treesitter textobjects
