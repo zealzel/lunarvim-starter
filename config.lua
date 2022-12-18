@@ -195,6 +195,10 @@ lvim.builtin.which_key.mappings["P"] = {
 
 -- Additional Plugins
 lvim.plugins = {
+  --================================================
+  -- Customed working plugins
+  --================================================
+  -- My preferred colorscheme
   "morhetz/gruvbox",
   -- You can switch between vritual environmnts.
   "AckslD/swenv.nvim",
@@ -246,7 +250,9 @@ lvim.plugins = {
     end,
   },
 
+  --================================================
   -- To be added in the future
+  --================================================
   "tami5/lspsaga.nvim",
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
@@ -262,7 +268,9 @@ lvim.plugins = {
   "preservim/nerdcommenter",
   "alexghergh/nvim-tmux-navigation",
 
+  --================================================
   -- Plugins not working. To be observed.
+  --================================================
   --{
   --  "jayp0521/mason-null-ls.nvim",
   --  config = function()
