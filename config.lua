@@ -200,7 +200,12 @@ lvim.plugins = {
   { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
 
   -- To be added in the future
-  "ray-x/lsp_signature.nvim",
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup()
+    end,
+  },
   "tami5/lspsaga.nvim",
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
