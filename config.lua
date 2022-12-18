@@ -195,10 +195,14 @@ lvim.builtin.which_key.mappings["P"] = {
 
 -- Additional Plugins
 lvim.plugins = {
+  "morhetz/gruvbox",
   -- You can switch between vritual environmnts.
   "AckslD/swenv.nvim",
+  -- Python extension for nvim-dap
   "mfussenegger/nvim-dap-python",
+  -- Syntax aware text-objects, select, move, swap, and peek support.
   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- Whenever cursor jumps some distance or moves between windows, it will flash so you can see where it is
   "DanilaMihailov/beacon.nvim",
   {
     -- You can generate docstrings automatically.
@@ -218,14 +222,31 @@ lvim.plugins = {
   },
   -- You can run blocks of code like jupyter notebook.
   { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
-
-  -- To be added in the future
+  -- A Git wrapper so awesome, it should be illegal
+  "tpope/vim-fugitive",
   {
+    -- LSP signature hint as you type
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup()
     end,
   },
+  {
+    -- Add/change/delete surrounding delimiter pairs with ease
+    "kylechui/nvim-surround",
+      config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+  {
+    -- 🦘 Interface that makes on-screen navigation quicker and more natural than ever
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  },
+
+  -- To be added in the future
   "tami5/lspsaga.nvim",
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
@@ -238,22 +259,9 @@ lvim.plugins = {
     run = "./install.sh",
   },
   "github/copilot.vim",
-  "tpope/vim-fugitive",
   "preservim/nerdcommenter",
   "alexghergh/nvim-tmux-navigation",
-  {
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup()
-    end,
-  },
-  {
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").add_default_mappings()
-    end,
-  },
-  --
+
   -- Plugins not working. To be observed.
   --{
   --  "jayp0521/mason-null-ls.nvim",
@@ -266,7 +274,6 @@ lvim.plugins = {
   --  end
   --},
 
-  "morhetz/gruvbox",
 }
 
 -- Setup Treesitter textobjects
