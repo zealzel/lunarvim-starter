@@ -227,7 +227,12 @@ lvim.plugins = {
       require("nvim-surround").setup()
     end,
   },
-  "ggandor/leap.nvim",
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  },
   --
   -- Plugins not working. To be observed.
   --{
