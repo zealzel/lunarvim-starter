@@ -5,12 +5,10 @@ lvim.builtin.terminal.active = true
 -- lvim.colorscheme = "lunar"
 lvim.colorscheme = "gruvbox"
 
-
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bprevious<cr>"
-
 
 vim.g.python3_host_prog = "~/.pyenv/versions/3.9.11/bin/python3.9"
 
@@ -77,39 +75,44 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 -- Set a formatter.
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup({
   {
     command = "black",
     extra_args = { "--fast", "--preview" },
-    filetypes = { "python" }
+    filetypes = { "python" },
   },
-}
+})
 
 -- Set a linter.
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
   {
     command = "flake8",
     filetypes = {
-      "python"
+      "python",
     },
     extra_args = {
-      "--max-line-length", "88",
+      "--max-line-length",
+      "88",
     },
   },
-}
+})
 
 -- TODO: debugpy installed by default
 -- Setup dap for python
 lvim.builtin.dap.active = true
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
-pcall(function() require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python") end)
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+pcall(function()
+  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+end)
 
 -- Supported test frameworks are unittest, pytest and django. By default it
 -- tries to detect the runner by probing for pytest.ini and manage.py, if
 -- neither are present it defaults to unittest.
-pcall(function() require("dap-python").test_runner = "pytest" end)
+pcall(function()
+  require("dap-python").test_runner = "pytest"
+end)
 
 -- Magma Setup
 
@@ -137,7 +140,7 @@ vim.g.magma_cell_highlight_group = "CursorLine"
 -- The generated file is placed in this directory, with the filename itself
 -- being the buffer's name, with % replaced by %% and / replaced by %, and
 -- postfixed with the extension .json.
-vim.g.magma_save_path = vim.fn.stdpath "data" .. "/magma"
+vim.g.magma_save_path = vim.fn.stdpath("data") .. "/magma"
 
 -- Mappings
 lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('dap-python').test_method()<cr>", "Test Method" }
@@ -175,11 +178,12 @@ lvim.plugins = {
   -- You can switch between vritual environmnts.
   "AckslD/swenv.nvim",
   "mfussenegger/nvim-dap-python",
+  "nvim-treesitter/nvim-treesitter-textobjects",
   {
     -- You can generate docstrings automatically.
     "danymat/neogen",
     config = function()
-      require("neogen").setup {
+      require("neogen").setup({
         enabled = true,
         languages = {
           python = {
@@ -188,7 +192,7 @@ lvim.plugins = {
             },
           },
         },
-      }
+      })
     end,
   },
   -- You can run blocks of code like jupyter notebook.
@@ -206,5 +210,28 @@ lvim.plugins = {
   --  end
   --},
   "morhetz/gruvbox",
-	{ "alexghergh/nvim-tmux-navigation" },
+  { "alexghergh/nvim-tmux-navigation" },
+}
+
+
+-- Setup Treesitter textobjects
+-- ref: https://github.com/LunarVim/LunarVim/issues/2730
+local ts = lvim.builtin.treesitter
+ts.textobjects = {
+  select = {
+    enable = true,
+    -- Automatically jump forward to textobj, similar to targets.vim
+    lookahead = true,
+    keymaps = {
+      -- You can use the capture groups defined in textobjects.scm
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+    },
+  },
+  swap = {
+    enable = false,
+    -- swap_next = textobj_swap_keymaps,
+  },
 }
