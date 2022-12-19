@@ -10,6 +10,15 @@ lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bprevious<cr>"
 
+local opts = { noremap = true , silent = true}
+lvim.keys.normal_mode["<C-h>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts}
+lvim.keys.normal_mode["<C-j>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", opts}
+lvim.keys.normal_mode["<C-k>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", opts}
+lvim.keys.normal_mode["<C-l>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", opts}
+lvim.keys.normal_mode["<C-\\>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>", opts}
+lvim.keys.normal_mode["<C-Space>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>", opts}
+
+
 lvim.keys.normal_mode["<C-g>"] = ":Git <CR>"
 lvim.keys.normal_mode["<leader>gh"] = ":Git hist<CR>"
 lvim.keys.normal_mode["<leader>go"] = ":Git checkout<space>"
@@ -30,7 +39,7 @@ lvim.keys.normal_mode["<leader>grba"] = ":Git rebase --abort<CR>"
 
 lvim.keys.normal_mode["<leader>gp"] = ":!gitup<CR>"
 
-vim.g.python3_host_prog = "~/.pyenv/versions/3.9.11/bin/python3.9"
+vim.g.python3_host_prog = "~/.pyenv/versions/3.10.8/bin/python3.10"
 
 local options = {
   -- backup = false, -- creates a backup file
