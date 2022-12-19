@@ -275,13 +275,14 @@ lvim.plugins = {
     requires = "hrsh7th/nvim-cmp",
     event = "InsertEnter",
   },
-  {
-    -- Easy Neovim-Tmux navigation, completely written in Lua
-    "alexghergh/nvim-tmux-navigation",
-    config = function()
-      require("nvim-tmux-navigation").setup()
-    end,
-  },
+  -- Seamless tmux/vim navigation (over SSH too!)
+  --   After trying severla plugins, this is the only one can work under ssh condition
+  --   plugins tried:
+  --     - "alexghergh/nvim-tmux-navigation",
+  --     - "aserowy/tmux.nvim",
+  --     - "numToStr/Navigator.nvim",
+  --     - "christoomey/vim-tmux-navigator"
+  { "sunaku/tmux-navigate" },
 
   --================================================
   -- To be added in the future
