@@ -105,7 +105,7 @@ formatters.setup({
     extra_args = { "--fast", "--preview" },
     filetypes = { "python" },
   },
-  {command="shellharden"},
+  { command = "shellharden" },
 })
 
 -- Set a linter.
@@ -339,3 +339,12 @@ ts.textobjects = {
     -- swap_next = textobj_swap_keymaps,
   },
 }
+
+
+vim.api.nvim_command([[ autocmd ColorScheme * highlight NormalFloat guibg=none ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight FloatBorder guibg=none ]])
+--vim.api.nvim_command [[ autocmd ColorScheme * highlight LspSagaDiagnosticBorder guifg=#6699cc gui=bold ]]
+--vim.api.nvim_command [[ autocmd ColorScheme * highlight LspSagaDiagnosticTruncateLine guifg=#6699cc ]]
+vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticHeader guifg=#ffffff gui=bold ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticBorder guifg=#ffffff gui=bold ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticTruncateLine guifg=#ffffff ]])
