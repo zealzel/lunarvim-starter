@@ -3,7 +3,7 @@ lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.terminal.active = true
 
 -- lvim.colorscheme = "lunar"
-lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "gruvbox"  -- gruvbox/tokyonight-night/tokyonight-moon/tokyonight-storm
 
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
@@ -341,6 +341,12 @@ ts.textobjects = {
 }
 
 
+vim.opt.background = "dark"
+vim.g.gruvbox_contrast_dark = "medium" -- "hard/medium/soft"
+
+-- vim.opt.background = "light"
+-- vim.g.gruvbox_contrast_light = "hard" -- "hard/medium/soft"
+
 vim.api.nvim_command([[ autocmd ColorScheme * highlight NormalFloat guibg=none ]])
 vim.api.nvim_command([[ autocmd ColorScheme * highlight FloatBorder guibg=none ]])
 --vim.api.nvim_command [[ autocmd ColorScheme * highlight LspSagaDiagnosticBorder guifg=#6699cc gui=bold ]]
@@ -348,3 +354,15 @@ vim.api.nvim_command([[ autocmd ColorScheme * highlight FloatBorder guibg=none ]
 vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticHeader guifg=#ffffff gui=bold ]])
 vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticBorder guifg=#ffffff gui=bold ]])
 vim.api.nvim_command([[ autocmd ColorScheme * highlight LspSagaDiagnosticTruncateLine guifg=#ffffff ]])
+
+
+vim.api.nvim_command([[ autocmd ColorScheme * highlight clear SignColumn ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight GitsignsAdd ctermfg=142 guifg=#b8bb26 guibg=None gui=bold ]]) --Green
+vim.api.nvim_command([[ autocmd ColorScheme * highlight GitsignsChange ctermfg=208 guifg=#fe8019 guibg=None gui=bold ]]) --Orange
+vim.api.nvim_command([[ autocmd ColorScheme * highlight GitsignsDelete ctermfg=142 guifg=#fb4934 guibg=None gui=bold ]]) --Red
+vim.api.nvim_command([[ autocmd ColorScheme * highlight GitsignsChangeDelete ctermfg=208 guifg=#fe8019 guibg=None gui=bold ]]) --Orange
+
+vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignError guifg=#fb4934 guibg=None gui=bold ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignWarn guifg=#fabd2f guibg=None gui=bold ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignInfo guifg=#83a598 guibg=None gui=bold ]])
+vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignHint guifg=#8ec07c guibg=None gui=bold ]])
