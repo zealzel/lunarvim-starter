@@ -1,1 +1,1 @@
-python-ide/config.lua
+c-ide.lua
