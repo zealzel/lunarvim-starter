@@ -9,14 +9,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bprevious<cr>"
-
-local opts = { noremap = true , silent = true}
-lvim.keys.normal_mode["<C-h>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts}
-lvim.keys.normal_mode["<C-j>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", opts}
-lvim.keys.normal_mode["<C-k>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", opts}
-lvim.keys.normal_mode["<C-l>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", opts}
-lvim.keys.normal_mode["<C-\\>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>", opts}
-lvim.keys.normal_mode["<C-Space>"] = {":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>", opts}
+vim.api.nvim_set_keymap('i', '<C-s>', '<esc>:w<cr>', {})
 
 
 lvim.keys.normal_mode["<C-g>"] = ":Git <CR>"
