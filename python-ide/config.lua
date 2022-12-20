@@ -105,6 +105,7 @@ formatters.setup({
     extra_args = { "--fast", "--preview" },
     filetypes = { "python" },
   },
+  {command="shellharden"},
 })
 
 -- Set a linter.
