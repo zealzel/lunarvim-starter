@@ -282,7 +282,15 @@ lvim.plugins = {
   --================================================
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
-  "github/copilot.vim",
+  -- "github/copilot.vim",
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()
+  --     end, 100)
+  --   end,
+  -- },
 
   --================================================
   -- Plugins not working. To be observed.
