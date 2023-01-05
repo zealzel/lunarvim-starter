@@ -1,1 +1,1 @@
-c-ide.lua
+all-ide.lua
