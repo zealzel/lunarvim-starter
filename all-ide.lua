@@ -78,6 +78,8 @@ lvim.plugins = {
       require("nnn").setup()
     end,
   },
+  -- EditorConfig plugin for Neovim
+  -- global configured in ~/.editorconfig
   "gpanders/editorconfig.nvim",
 
   --================================================
@@ -85,6 +87,10 @@ lvim.plugins = {
   --================================================
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
+
+  --================================================
+  -- Not used
+  --================================================
 }
 
 -- Setup Treesitter textobjects
@@ -183,9 +189,9 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
   -- {command = "shellcheck"},
+  command = "cpplint",
   {
     command = "flake8",
-    command = "cpplint",
     filetypes = {
       "python",
     },
@@ -371,9 +377,10 @@ lvim.builtin.dap.on_config_done = function(dap)
       request = "launch",
       program = function()
         local path
-        vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" }, function(input)
-          path = input
-        end)
+        vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" },
+          function(input)
+            path = input
+          end)
         vim.cmd [[redraw]]
         return path
       end,
