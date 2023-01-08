@@ -1,3 +1,6 @@
+-- ==============================================================================
+-- Common Base
+-- ==============================================================================
 lvim.format_on_save = false
 lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.terminal.active = true
@@ -128,8 +131,9 @@ vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignInfo guifg
 vim.api.nvim_command([[ autocmd ColorScheme * highlight DiagnosticSignHint guifg=#8ec07c guibg=None gui=bold ]])
 
 
-
-----------------------------------------------------------------------------------------------
+-- ==============================================================================
+-- C/C++ plugins
+-- ==============================================================================
 -- auto install treesitter parsers
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 
@@ -240,4 +244,5 @@ lvim.builtin.dap.on_config_done = function(dap)
 
   dap.configurations.c = dap.configurations.cpp
 end
+
 
