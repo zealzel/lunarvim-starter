@@ -178,7 +178,7 @@ formatters.setup({
     filetypes = { "python" },
   },
   { command = "shellharden" },
-  -- { command = "shfmt" },
+  { command = "shfmt" },
   -- { command = "beautysh" },
   { command = "gersemi" },
   { command = "cmake-format" },
