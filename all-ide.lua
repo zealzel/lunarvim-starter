@@ -78,10 +78,10 @@ lvim.plugins = {
       require("nnn").setup()
     end,
   },
-  -- EditorConfig plugin for Neovim
-  -- global configured in ~/.editorconfig
+  -- EditorConfig plugin for Neovim. Global configured in ~/.editorconfig
   "gpanders/editorconfig.nvim",
-
+  -- disables search highlighting when you are done searching and re-enables it when you search again
+  "romainl/vim-cool",
   --================================================
   -- To be added in the future
   --================================================
@@ -89,8 +89,9 @@ lvim.plugins = {
   "onsails/lspkind.nvim",
 
   --================================================
-  -- Not used
+  -- Experiments
   --================================================
+  "github/copilot.vim",
 }
 
 -- Setup Treesitter textobjects
@@ -189,7 +190,8 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
   -- {command = "shellcheck"},
-  command = "cpplint",
+  { command = "cpplint", },
+  { command = "hadolint", }, -- dockerfile
   {
     command = "flake8",
     filetypes = {
