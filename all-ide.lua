@@ -18,7 +18,7 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<esc>:w<cr>', {})
 
 -- my options
 vim.opt.relativenumber = true
-
+vim.opt.scrolloff = 0
 
 -- Additional Plugins
 lvim.plugins = {
