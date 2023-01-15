@@ -1,8 +1,6 @@
-lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
-
-lvim.builtin.treesitter.highlight.enable = true
-
+-- ==============================================================================
+-- C/C++ plugins
+-- ==============================================================================
 -- auto install treesitter parsers
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 

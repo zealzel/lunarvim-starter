@@ -4,20 +4,70 @@ lvim.builtin.terminal.active = true
 lvim.builtin.treesitter.highlight.enable = true
 
 -- lvim.colorscheme = "lunar"
-lvim.colorscheme = "gruvbox"  -- gruvbox/tokyonight-night/tokyonight-moon/tokyonight-storm
+lvim.colorscheme = "gruvbox" -- gruvbox/tokyonight-night/tokyonight-moon/tokyonight-storm
 
 -- my keymappings
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+vim.api.nvim_set_keymap('i', '<C-s>', '<esc>:w<cr>', {})
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bprevious<cr>"
-lvim.keys.normal_mode["<C-g>"] = ":Git <CR>"
 lvim.keys.normal_mode["<leader>gp"] = ":!gitup<CR>"
 lvim.keys.normal_mode["<C-n>"] = ":NvimTreeToggle<cr>"
-vim.api.nvim_set_keymap('i', '<C-s>', '<esc>:w<cr>', {})
+
+lvim.keys.normal_mode["<C-g>"] = ":Git <CR>"
+-- lvim.keys.normal_mode["<leader>gh"] = ":Git hist<CR>"
+-- lvim.keys.normal_mode["<leader>go"] = ":Git checkout<space>"
+-- lvim.keys.normal_mode["<leader>gc"] = ":Git commit<CR>"
+-- lvim.keys.normal_mode["<leader>gca"] = ":Git commit --amend<CR>"
+-- lvim.keys.normal_mode["<leader>gl"] = ":Git log<CR>"
+-- lvim.keys.normal_mode["<leader>gr"] = ":Gread<CR>"
+-- lvim.keys.normal_mode["<leader>gw"] = ":Gwrite<CR><CR>"
+-- lvim.keys.normal_mode["<leader>gv"] = ":Gvdiffsplit<CR>"
+-- lvim.keys.normal_mode["<leader>gvv"] = ":Gvdiffsplit!<CR>"
+-- lvim.keys.normal_mode["<leader>gb"] = ":Git branch<Space>"
+-- lvim.keys.normal_mode["<leader>gm"] = ":Git merge<Space>"
+-- lvim.keys.normal_mode["<leader>gma"] = ":Git merge --abort<CR>"
+-- lvim.keys.normal_mode["<leader>grb"] = ":Git rebase<Space>"
+-- lvim.keys.normal_mode["<leader>grbc"] = ":Git rebase --continue<CR>"
+-- lvim.keys.normal_mode["<leader>grba"] = ":Git rebase --abort<CR>"
 
 -- my options
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 0
+-- backup = false, -- creates a backup file
+-- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+-- cmdheight = 1, -- neovim command line for displaying messages
+-- completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+-- conceallevel = 0, -- so that `` is visible in markdown files
+-- fileencoding = "utf-8", -- the encoding written to a file
+-- hlsearch = true, -- highlight all matches on previous search pattern
+-- ignorecase = true, -- ignore case in search patterns
+-- mouse = "a", -- allow the mouse to be used in neovim
+-- pumheight = 10, -- pop up menu height
+-- showmode = false, -- we don't need to see things like -- INSERT -- anymore
+-- showtabline = 2, -- always show tabs
+-- smartcase = true, -- smart case
+-- smartindent = true, -- make indenting smarter again
+-- splitbelow = true, -- force all horizontal splits to go below current window
+-- splitright = true, -- force all vertical splits to go to the right of current window
+-- swapfile = false, -- creates a swapfile
+-- termguicolors = true, -- set term gui colors (most terminals support this) (This affect the color very much!)
+-- timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
+-- undofile = true, -- enable persistent undo
+-- updatetime = 300, -- faster completion (4000ms default)
+-- writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+-- expandtab = true, -- convert tabs to spaces
+-- shiftwidth = 2, -- the number of spaces inserted for each indentation
+-- tabstop = 2, -- insert 2 spaces for a tab
+-- cursorline = true, -- highlight the current line
+-- number = true, -- set numbered lines
+-- numberwidth = 4, -- set number column width to 2 {default 4}
+-- signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+-- wrap = false, -- display lines as one long line
+-- scrolloff = 0, -- is one of my fav
+-- sidescrolloff = 8,
+-- guifont = "monospace:h17", -- the font used in graphical neovim applications
 
 -- Additional Plugins
 lvim.plugins = {
@@ -29,6 +79,8 @@ lvim.plugins = {
   "DanilaMihailov/beacon.nvim",
   -- A Git wrapper so awesome, it should be illegal
   "tpope/vim-fugitive",
+  -- continuously updated session files
+  "tpope/vim-obsession",
   {
     -- LSP signature hint as you type
     "ray-x/lsp_signature.nvim",
@@ -56,8 +108,8 @@ lvim.plugins = {
     "glepnir/lspsaga.nvim",
     branch = "main",
     config = function()
-      local saga = require("lspsaga")
-      saga.init_lsp_saga({})
+      require("lspsaga").setup({})
+      -- saga.init_lsp_saga({})
     end,
   },
   {
@@ -69,12 +121,28 @@ lvim.plugins = {
   },
   -- Seamless tmux/vim navigation (over SSH too!)
   { "sunaku/tmux-navigate" },
+  {
+    "luukvbaal/nnn.nvim",
+    config = function()
+      require("nnn").setup()
+    end,
+  },
+  -- EditorConfig plugin for Neovim. Global configured in ~/.editorconfig
+  "gpanders/editorconfig.nvim",
+  -- disables search highlighting when you are done searching and re-enables it when you search again
+  "romainl/vim-cool",
 
   --================================================
   -- To be added in the future
   --================================================
   "hrsh7th/cmp-nvim-lua",
   "onsails/lspkind.nvim",
+
+  --================================================
+  -- Experiments
+  --================================================
+  "github/copilot.vim",
+  "junegunn/vim-peekaboo",
 }
 
 -- Setup Treesitter textobjects
